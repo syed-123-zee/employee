@@ -1,0 +1,43 @@
+<button mat-flat-button color="primary"  (click)="goToManage()">Manage</button>
+
+
+<div style="margin: 20px; max-width: 600px;">
+  <form [formGroup]="employeeForm" (ngSubmit)="saveEmployee()">
+
+
+    <mat-form-field appearance="fill">
+      <mat-label>Employee Name</mat-label>
+      <input matInput formControlName="employee_name">
+      <mat-error *ngIf="employeeForm.get('employee_name')?.invalid">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+      <mat-error *ngIf="employeeForm.get('email')?.invalid">Required</mat-error>
+    </mat-form-field>
+
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Salary</mat-label>
+      <input matInput formControlName="salary">
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" type="submit" *ngIf="!editPage">Save</button>
+    <button mat-raised-button color="primary" type="submit" *ngIf="editPage">Update</button>
+
+
+
+  </form>
+
+  <br><br>
+
+</div>
+
+
+
+
+
+
+
